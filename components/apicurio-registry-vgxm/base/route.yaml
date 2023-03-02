@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: apicurio-registry-vgxm
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: apicurio-registry-vgxm
+    app.kubernetes.io/part-of: apicurio-registry
+  name: apicurio-registry-vgxm
+  namespace: burrsitis-tenant
+spec:
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: apicurio-registry-vgxm
+    weight: 100
+status: {}
